@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Intro-Light-Alt';
+  src: url('Intro-Light-Alt.eot');
+  src: url('Intro-Light-Alt.eot?#iefix') format('embedded-opentype'),
+       url('Intro-Light-Alt.woff2') format('woff2'),
+       url('Intro-Light-Alt.woff') format('woff'),
+       url('Intro-Light-Alt.ttf') format('truetype'),
+       url('Intro-Light-Alt.svg#Intro-Light-Alt') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+

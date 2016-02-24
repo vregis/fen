@@ -1,0 +1,163 @@
+.clear {
+    clear: both;
+}
+#login-form .checkbox label {
+    padding-left: 0;
+}
+
+#login-form .login-button {
+    max-width: 45%;
+    float: right;
+}
+
+#login-form .field-loginform-rememberme {
+    max-width: 45%;
+    display: inline-block;
+}
+
+.button-add {
+    width: 10em;
+    margin: 1em;
+}
+
+.content-wrapper a.cke_button {
+    height: 17px;
+}
+
+.table-hover .fa {
+    margin-left: 1.3em;
+}
+
+.table-hover th {
+    background: #EEEEEE;
+}
+
+.table-hover td, .table-hover th {
+    border: 1px solid #ddd;
+}
+
+.icon-2x {
+    font-size: 3em;
+}
+
+.dropzone {
+    border: 3px solid #dddddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: 1em;
+    position: relative;
+    padding: 0;
+}
+
+#thumbs {
+    margin: 60px auto 35px;
+    text-align: center;
+}
+
+#thumbs img {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 2px;
+    display: inline-block;
+}
+
+/*=== gallery_ajax_form ===*/
+.dropzone.dz-clickable {
+    cursor: pointer;
+}
+
+.dropzone.dz-clickable .dz-message, .dropzone.dz-clickable .dz-message * {
+    cursor: pointer;
+}
+.dropzone .dz-message {
+    font-weight: 400;
+}
+.dropzone .dz-message {
+    margin: 2em 0;
+    text-align: center;
+}
+.clear{
+    clear: both;
+}
+
+#image_box li{
+    list-style-type: none;
+    display: inline-block;
+    margin: 0.5em;
+    overflow: hidden;
+}
+
+#thumbs .icon-move:hover{
+    cursor: move;
+}
+
+#thumbs .edit .fa {
+    margin-left: 1em;
+}
+
+#thumbs .fa:hover{
+    cursor: pointer;
+}
+
+#thumbs .edit span{ margin-left: 1em; }
+#thumbs .unpublished{
+    border: 7px solid #AA433A;
+    opacity: 0.5;
+}
+
+.content a.child {
+    color: #333;
+}
+
+.content a.child i {
+    color: #4E9CC4;
+    font-size: 1.1em;
+}
+
+.ajax {
+    display: none;
+}
+
+.ui-sortable-helper {
+    display: table;
+}
+
+.child:hover {
+    cursor: pointer;
+}
+
+.table-hover .fa-plus-square-o {
+    margin-left: 0.3em;
+    vertical-align: middle;
+}
+
+#child-box .modal-dialog {
+    width: 50%;
+}
+
+.message {
+    width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;
+}
+
+.flash_message {
+    border: 2px solid #000002;
+    margin: 1em 0;
+    padding: 1em 0;
+    text-align: center;
+    width: 100%;
+}
+
+.child-add {
+    float: left;
+}
+
+.child-add .button-add {
+    margin: 0;
+}
+
+.notice {
+    font-size: 12px;
+    font-style: italic;
+}
