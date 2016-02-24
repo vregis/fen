@@ -4,6 +4,7 @@ namespace frontend\controllers;
 use common\models\Actions;
 use common\models\Data;
 use common\models\Gallery;
+use common\models\GalleryImages;
 use common\models\News;
 use common\models\Pages;
 use common\models\Price;
@@ -86,7 +87,7 @@ class SiteController extends Controller
             ->andWhere('category_id IS NOT NULL')->all();
         $aPage   = Pages::find()->where(['alias'=>'/'])->one();
         $aAction = ArrayHelper::map(Actions::find()->select(['alias','text'])->all(),'alias','text');
-        $oSlider = Gallery::find()->where(['name'=>'slider'])->one();
+        $oSlider = Gallery::find()->where(['id'=>'2'])->one();
         $aSlider = $oSlider->images;
 
         return $this->render('index',compact('aContact','aaAdvantages','aSocial','aaNews','aaPriceType',

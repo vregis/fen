@@ -38,6 +38,35 @@ class GalleryImages extends \yii\db\ActiveRecord
         return 'gallery_images';
     }
 
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => \maxmirazh33\image\Behavior::className(),
+                'savePathAlias' => '@web/images/',
+                'urlPrefix' => '/images/',
+                'crop' => true,
+                'attributes' => [
+                    'file' => [
+                        'savePathAlias' => '@web/images/avatars/',
+                        'urlPrefix' => '/images/avatars/',
+                        'width' => 100,
+                        'height' => 100,
+                    ],
+                    'logo' => [
+                        'crop' => false,
+                        'thumbnails' => [
+                            'mini' => [
+                                'width' => 50,
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            //other behaviors
+        ];
+    }
+
     /**
      * @inheritdoc
      */

@@ -123,11 +123,12 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $aPage['keywords']], 
     <img src="/img/Pod_Fenom_logo.svg" alt="" class="logo">
 </a>
 <div class="fullpage">
-    <section id="header" class="fullpage__header">
+<?php $headImage = GalleryImages::find()->where(['id' => 15])->one();?>
+    <section id="header" <?php echo ($headImage)?'style="background-image:url(/frontend/web/userfiles/gallery/'.$headImage->basename.'.'.$headImage->ext.')"':''?> class="fullpage__header">
 
         <div class="header__h1">
             <div class="content-wrapper content-wrapper_d">
-                <div class="h1 h1__d"><?= $aPage['title'] ?></div>
+                <div class="h1 h1__d"><?= $aPage['name'] ?></div>
             </div>
         </div>
 
@@ -218,7 +219,12 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $aPage['keywords']], 
     </section>
     <section id="events" class="fullpage__servises">
         <div class="events-header">
+            <?php $botImage = GalleryImages::find()->where(['id' => 16])->one();?>
+            <?php if($botImage):?>
+                <img src="/frontend/web/userfiles/gallery/<?php echo $botImage->basename?>.<?php echo $botImage->ext?>" alt="" class="events-header__img">
+            <?php else:?>
             <img src="/img/bg/bg4.jpg" alt="" class="events-header__img">
+            <?php endif;?>
             <div class="events__h1">
                 <div class="content-wrapper">
                     <div class="h1 h1_individuality">ПОСЛЕДНИЕ СОБЫТИЯ</div>

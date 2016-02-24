@@ -5,6 +5,7 @@ namespace common\models;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\helpers\ArrayHelper;
+use \maxmirazh33\image\GetImageUrlTrait;
 
 /**
  * This is the model class for table "gallery".
@@ -24,16 +25,6 @@ class Gallery extends \yii\db\ActiveRecord
     const PUBLISH = 1;
     const UNPUBLISHED = 0;
 
-    public function behaviors()
-    {
-        return [
-            [
-                'class' => TimestampBehavior::className(),
-                'createdAtAttribute' => 'created_at',
-                'updatedAtAttribute' => 'updated_at',
-            ],
-        ];
-    }
 
     /**
      * @inheritdoc
@@ -50,7 +41,7 @@ class Gallery extends \yii\db\ActiveRecord
     {
         return [
             [['parent_id','news_id', 'publish', 'pos', 'created_at', 'updated_at'], 'integer'],
-            [['name'], 'required'],
+            [[], 'required'],
             [['name'], 'string', 'max' => 255]
         ];
     }

@@ -105,7 +105,12 @@ class DefaultController extends SiteController
             $model->save();
             return $this->redirect(Yii::$app->homeUrl.$this->module->id);
         }
-        return $this->render('form', ['model' => $model, 'images' => new GalleryImages()]);
+        if($id == 8 || $id == 9){
+            return $this->render('custom_form', ['model' => $model, 'images' => new GalleryImages()]);
+        }else{
+            return $this->render('form', ['model' => $model, 'images' => new GalleryImages()]);
+        }
+
     }
 
     public function actionUpdatePositions()

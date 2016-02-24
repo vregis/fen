@@ -46,7 +46,8 @@ class News extends \yii\db\ActiveRecord
                 'class' => FileBehavior::className(),
                 'path' => self::PATH,
                 'entity' => self::IMAGE_ENTITY
-            ]
+            ],
+
         ];
     }
 
@@ -64,7 +65,7 @@ class News extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['alias', 'name', 'text', 'title', 'description', 'keywords'], 'required'],
+            [['alias', 'name'], 'required'],
             [['image', 'text', 'title', 'description', 'keywords'], 'string'],
             [['publish', 'pos', 'created_at', 'updated_at'], 'integer'],
             [['alias', 'name'], 'string', 'max' => 255],

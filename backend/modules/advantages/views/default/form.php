@@ -22,9 +22,9 @@ $this->title = 'Добавление/Редактирование заявки �
                 </div><!-- /.box-header -->
                     <?php $form = ActiveForm::begin(['method' => 'post', 'options' => ['role' => 'form']]); ?>
                         <div class="box-body">
-                            <?= $form->field($model, 'priority') ?>
-                            <?= $form->field($model, 'data')->textarea() ?>
-                            <?= $form->field($model, 'category')->hiddenInput(['value'=>'advantages']) ?>
+                            <?= $form->field($model, 'priority')->label('Приоритет'); ?>
+                            <?= $form->field($model, 'data')->textarea()->label(false) ?>
+                            <?= $form->field($model, 'category')->hiddenInput(['value'=>'advantages'])->label(false) ?>
                             <div class="form-group">
                                 <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
                             </div>

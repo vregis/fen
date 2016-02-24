@@ -82,7 +82,7 @@ $this->title = 'Галереи';
                         [
                             'class' => 'yii\grid\ActionColumn',
                             'header' => 'Редактирование',
-                            'template' => '{update} {delete}',
+                            'template' => '{update}',
                             'buttons' => [
                                 'update' => function($url){
                                     return Html::a('<i class="fa fa-fw fa-pencil"></i>', $url);

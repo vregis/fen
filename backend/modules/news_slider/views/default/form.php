@@ -25,8 +25,10 @@ $this->title = 'Добавление/Редактирование галереи
 
                 <?php $form = ActiveForm::begin(['method' => 'post', 'options' => ['role' => 'form']]); ?>
                     <div class="box-body">
+                        <div style="display:none">
                         <?= $form->field($model, 'news_id')->dropDownList(ArrayHelper::map(\common\models\News::find()
                             ->all(),'id','name'),['prompt'=>'']); ?>
+                        </div>
                         <?= $form->field($model, 'name') ?>
                         <?php if(!$model->isNewRecord):?>
                             <?= $form->field($model, 'publish')->checkbox(['class' => 'minimal']) ?>

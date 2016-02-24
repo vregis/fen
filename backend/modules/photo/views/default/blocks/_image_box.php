@@ -11,18 +11,30 @@ use common\models\GalleryImages;
 $li = [];
 foreach(GalleryImages::getImages($model->id) as $i){
     $li[] = ArrayHelper::getValue($i, function($image){
-        return [
-            'content' => Html::img('@gallery/' . $image['basename'].'_thumb.'.$image['ext'],
-                    [
-                        'class' => $image['publish'] == 0 ? 'unpublished' : '',
-                        'data-pos' => $image['pos'],
-                        'data-id' => $image['id'],
-                    ]) . '<div class="edit">
+        if($image['id'] == 15){
+            return [
+                'content' => Html::img('@gallery/' . $image['basename'].'_thumb.'.$image['ext'],
+                        [
+                            'class' => $image['publish'] == 0 ? 'unpublished' : '',
+                            'data-pos' => $image['pos'],
+                            'data-id' => $image['id'],
+                        ])
+            ];
+        }else{
+            return [
+                'content' => Html::img('@gallery/' . $image['basename'].'_thumb.'.$image['ext'],
+                        [
+                            'class' => $image['publish'] == 0 ? 'unpublished' : '',
+                            'data-pos' => $image['pos'],
+                            'data-id' => $image['id'],
+                        ]) . '<div class="edit">
                             <i class="fa fa-fw fa-arrows"></i>
                             <i class="fa fa-fw fa-pencil" data-toggle="modal" href="#edit-image"></i>
                             <i class="fa fa-fw fa-trash" data-url="'. Url::toRoute(['image-delete', 'id' => $image['id']]) .'"></i>
                         </div>'
-        ];
+            ];
+        }
+
     });
 }?>
 <div class="box-content">

@@ -20,11 +20,12 @@ class DefaultController extends SiteController
     public function behaviors()
     {
         return [
+
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index', 'add', 'update', 'delete', 'multiupload', 'load-images', 'update-positions', 'image-edit', 'image-delete', 'update-gallery-pos', 'childs'],
+                        'actions' => ['index', 'add', 'update', 'delete', 'multiupload', 'multiupload-custom', 'load-images', 'update-positions', 'image-edit', 'image-delete', 'update-gallery-pos', 'childs'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -34,6 +35,7 @@ class DefaultController extends SiteController
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'multiupload' => ['post'],
+                    'multiupload-custom' => ['post'],
                     'update-positions' => ['post'],
                     'image-edit' => ['post'],
                     'image-delete' => ['post'],
@@ -41,6 +43,7 @@ class DefaultController extends SiteController
                     'load-images' => ['post'],
                     'childs' => ['post'],
                 ],
+
             ],
         ];
     }
@@ -53,6 +56,13 @@ class DefaultController extends SiteController
         return [
             'multiupload' => [
                 'class' => 'backend\components\Multiupload',
+                'path' => $_SERVER['DOCUMENT_ROOT'].GalleryImages::PATH,
+                'width' => 1420,
+                'height' => 850,
+                'quality' => 100,
+            ],
+            'multiupload-custom' => [
+                'class' => 'backend\components\MultiuploadCustom',
                 'path' => $_SERVER['DOCUMENT_ROOT'].GalleryImages::PATH,
                 'width' => 1420,
                 'height' => 850,
@@ -105,7 +115,12 @@ class DefaultController extends SiteController
             $model->save();
             return $this->redirect(Yii::$app->homeUrl.$this->module->id);
         }
-        return $this->render('form', ['model' => $model, 'images' => new GalleryImages()]);
+        if($id == 8 || $id == 9){
+            return $this->render('custom_form', ['model' => $model, 'images' => new GalleryImages()]);
+        }else{
+            return $this->render('form', ['model' => $model, 'images' => new GalleryImages()]);
+        }
+
     }
 
     public function actionUpdatePositions()

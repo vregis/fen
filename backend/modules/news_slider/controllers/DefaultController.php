@@ -103,7 +103,7 @@ class DefaultController extends SiteController
 
         if($model->load(Yii::$app->request->post()) && $model->validate()){
             $model->save();
-            return $this->redirect(Yii::$app->homeUrl.$this->module->id);
+            return $this->redirect(Yii::$app->homeUrl);
         }
         return $this->render('form', ['model' => $model, 'images' => new GalleryImages()]);
     }

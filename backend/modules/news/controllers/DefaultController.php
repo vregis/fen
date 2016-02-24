@@ -2,6 +2,8 @@
 
 namespace backend\modules\news\controllers;
 
+use common\models\Gallery;
+use common\models\GalleryImages;
 use Yii;
 use yii\filters\AccessControl;
 use backend\controllers\SiteController;
@@ -60,11 +62,19 @@ class DefaultController extends SiteController
      */
     public function actionUpdate($id)
     {
+        $slider = Gallery::find()->where(['news_id' => $id])->one();
+        if(!$slider){
+            $gal = new Gallery();
+            $gal->news_id = $id;
+            $gal->save();
+            var_dump($gal->getErrors());
+        }
+
         if(!$model = News::findOne(['id' => $id])){
             throw new NotFoundHttpException('The requested page does not exist.');
         }
         $this->_loadData($model);
-        return $this->render('form', ['model' => $model]);
+        return $this->render('form', ['model' => $model, 'images' => new GalleryImages()]);
     }
 
     public function actionDelete($id)

@@ -18,15 +18,18 @@ $this->title = 'Добавление/Редактирование новости
         <div class="box">
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title"><?= Html::encode($this->title)?></h3>
+                    <h3 class="box-title"><?= Html::encode($this->title)?></h3> <br/><br/>
+                    <?php $id = \common\models\Gallery::find()->where(['news_id' => $model->id])->one()?>
+                    <?php if($id):?>
+                        <?php if(!$model->isNewRecord):?>
+                        <a class="btn btn-primary" href='/_root/news_slider/update/<?php echo $id->id?>'>Перейти к слайдеру</a>
+                        <?php endif;?>
+                    <?php endif;?>
                 </div><!-- /.box-header -->
                     <?php $form = ActiveForm::begin(['method' => 'post', 'options' => ['role' => 'form', 'enctype' => 'multipart/form-data']]); ?>
                         <div class="box-body">
                             <?= $form->field($model, 'name') ?>
-                            <?= $form->field($model, 'title') ?>
-                            <?= $form->field($model, 'description') ?>
-                            <?= $form->field($model, 'keywords') ?>
-                            <?= $form->field($model, 'alias') ?>
+                            <?= $form->field($model, 'alias')->hiddenInput(['value' => time()]) ?>
                             <?php if($model->image){?>
                                 <?= Html::img('@news/'.$model->image, ['alt' => $model->name, 'width' => '150']) ?>
                             <?php } ?>
@@ -41,6 +44,8 @@ $this->title = 'Добавление/Редактирование новости
                             </div>
                         </div>
                     <?php ActiveForm::end(); ?>
+
+
             </div>
         </div>
     </div>

@@ -22,8 +22,8 @@ $this->title = 'Добавление/Редактирование заявки �
                 </div><!-- /.box-header -->
                     <?php $form = ActiveForm::begin(['method' => 'post', 'options' => ['role' => 'form']]); ?>
                         <div class="box-body">
-                            <?= $form->field($model, 'target') ?>
-                            <?= $form->field($model, 'data') ?>
+                            <?= $form->field($model, 'target')->hiddenInput()->label(false) ?>
+                            <?= $form->field($model, 'data')->label('Ссылка'); ?>
                             <div class="form-group">
                                 <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
                             </div>
